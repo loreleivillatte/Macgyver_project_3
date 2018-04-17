@@ -21,9 +21,15 @@ pygame.init()
 
 screen = pygame.display.set_mode((600, 600))
 pygame.display.set_caption("MacGyver")
+
 level = Level('level.txt')
 level.generate()
 level.display(screen)
+
+MAC_GYVER = Player("pictures/mac_down.png", "pictures/mac_left.png",
+                   "pictures/mac_right.png", "pictures/mac_up.png", level)
+pygame.key.set_repeat(1, 40)
+
 pygame.display.flip()
 
 GAME_LEVEL = 1
@@ -36,6 +42,17 @@ while GAME_LEVEL:
         if event.type == pygame.QUIT:
             GAME_LEVEL = 0
 
+        elif event.type == KEYDOWN:
+            if event.key == K_DOWN:
+                MAC_GYVER.update('down')
+            elif event.key == K_LEFT:
+                MAC_GYVER.update('left')
+            elif event.key == K_RIGHT:
+                MAC_GYVER.update('right')
+            elif event.key == K_UP:
+                MAC_GYVER.update('up')
+
     screen.fill(pygame.Color('black'))
     level.display(screen)
+    screen.blit(MAC_GYVER.direction, (MAC_GYVER.x, MAC_GYVER.y))
     pygame.display.flip()
