@@ -1,4 +1,6 @@
-"""class level, Player"""
+"""class level, Player and Loot"""
+
+import random
 
 import pygame
 
