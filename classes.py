@@ -87,3 +87,26 @@ class Player:
                     self.case_y -= 1
                     self.y = self.case_y * sprite_size
             self.direction = self.up
+
+
+class Loot:
+    """class for display objects in level"""
+    def __init__(self, Loot_Image, level):
+        self.case_y = 0
+        self.case_x = 0
+        self.x = 0
+        self.y = 0
+        self.level = level
+        self.loaded = True
+        self.Loot_Image = Loot_Image
+
+    def display(self, Loot_Image, screen):
+        """ randomize position for the objects
+        if the randomize position = '0' path -> display objects"""
+        while self.loaded:
+            self.case_x = random.randint(0, 14)
+            self.case_y = random.randint(0, 14)
+            if self.level.structure[self.case_y][self.case_x] == '0':
+                self.y = self.case_y * sprite_size
+                self.x = self.case_x * sprite_size
+                self.loaded = False
