@@ -33,6 +33,9 @@ class Level:
         """display level depends on structure of list returned by generate"""
         wall = pygame.image.load("pictures/wall.png").convert()
         end = pygame.image.load("pictures/guard.png").convert_alpha()
+        bag_a = pygame.image.load("pictures/bag.png").convert()
+        bag_b = pygame.image.load("pictures/ba_g.png").convert()
+        loot_item = pygame.image.load("pictures/inventory.png").convert()
         num_line = 0
         for line in self.structure:
             num_case = 0
@@ -43,6 +46,12 @@ class Level:
                     screen.blit(wall, (sprite_x, sprite_y))
                 elif sprite == "e":
                     screen.blit(end, (sprite_x, sprite_y))
+                elif sprite == 'b':
+                    screen.blit(bag_a, (x, y))
+                elif sprite == 'a':
+                    screen.blit(bag_b, (x, y))
+                elif sprite == 'i':
+                    screen.blit(loot_item, (x, y))
                 num_case += 1
             num_line += 1
 
