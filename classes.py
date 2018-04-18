@@ -40,12 +40,12 @@ class Level:
         for line in self.structure:
             num_case = 0
             for sprite in line:
-                sprite_x = num_case * sprite_size
-                sprite_y = num_line * sprite_size
+                x = num_case * sprite_size
+                y = num_line * sprite_size
                 if sprite == 'w':
-                    screen.blit(wall, (sprite_x, sprite_y))
+                    screen.blit(wall, (x, y))
                 elif sprite == "e":
-                    screen.blit(end, (sprite_x, sprite_y))
+                    screen.blit(end, (x, y))
                 elif sprite == 'b':
                     screen.blit(bag_a, (x, y))
                 elif sprite == 'a':
