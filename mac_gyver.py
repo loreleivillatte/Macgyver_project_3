@@ -51,6 +51,9 @@ TUBE_NOTPICKED = True
 ETHER_NOTPICKED = True
 NEEDLE_NOTPICKED = True
 
+GAME_WON = False
+GAME_LOOSE = False
+
 """main loop"""
 while GAME_LEVEL:
     pygame.time.Clock().tick(30)
@@ -96,3 +99,13 @@ while GAME_LEVEL:
         screen.blit(ETHER_POS.Loot_Image, (160, 0))
         
     pygame.display.flip()
+
+    if level.structure[MAC_GYVER.case_y][MAC_GYVER.case_x] == 'e':
+        if TUBE_NOTPICKED == False:
+            if NEEDLE_NOTPICKED == False:
+                if ETHER_NOTPICKED == False:
+                    GAME_WON = True
+                    GAME_LEVEL = 0
+        else:
+            GAME_LOOSE = True
+            GAME_LEVEL = 0
