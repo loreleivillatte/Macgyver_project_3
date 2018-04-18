@@ -109,3 +109,23 @@ while GAME_LEVEL:
         else:
             GAME_LOOSE = True
             GAME_LEVEL = 0
+
+    if GAME_WON == True:
+        screen.fill(pygame.Color('black'))
+        font = pygame.font.Font('coders_crux.ttf', 36)
+        text = font.render("YOU WIN !", 1, (242, 242, 242))
+        textrect = text.get_rect()
+        textrect.centerx, textrect.centery = 600 / 2, 600 / 2
+        screen.blit(text, textrect)
+        pygame.display.flip()
+
+    if GAME_LOOSE == True:
+        screen.fill(pygame.Color('black'))
+        font = pygame.font.Font('coders_crux.ttf', 36)
+        text = font.render("GAME OVER...", 1, (234, 60, 31))
+        textrect = text.get_rect()
+        textrect.centerx, textrect.centery = 600 / 2, 600 / 2
+        screen.blit(text, textrect)
+        pygame.display.flip()
+        
+pygame.quit()
