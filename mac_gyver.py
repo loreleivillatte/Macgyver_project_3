@@ -31,9 +31,9 @@ MAC_GYVER = Player("pictures/mac_down.png", "pictures/mac_left.png",
 pygame.key.set_repeat(1, 40)
 
 """display loot"""
-TUBE_IMG = pygame.image.load(TUBE_POS).convert_alpha()
-NEEDLE_IMG = pygame.image.load(NEEDLE_POS).convert_alpha()
-ETHER_IMG = pygame.image.load(ETHER_POS).convert_alpha()
+TUBE_IMG = pygame.image.load("pictures/tube.png").convert_alpha()
+NEEDLE_IMG = pygame.image.load("pictures/needle.png").convert_alpha()
+ETHER_IMG = pygame.image.load("pictures/flask.png").convert_alpha()
 
 """position loot in level"""
 TUBE_POS = Loot(TUBE_IMG, level)
@@ -127,5 +127,3 @@ while GAME_LEVEL:
         textrect.centerx, textrect.centery = 600 / 2, 600 / 2
         screen.blit(text, textrect)
         pygame.display.flip()
-        
-pygame.quit()

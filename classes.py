@@ -6,8 +6,6 @@ import pygame
 
 from pygame.locals import *
 
-from constants import *
-
 
 class Level:
     """create labyrinth"""
@@ -36,6 +34,7 @@ class Level:
         bag_a = pygame.image.load("pictures/bag.png").convert()
         bag_b = pygame.image.load("pictures/ba_g.png").convert()
         loot_item = pygame.image.load("pictures/inventory.png").convert()
+        sprite_size = 40
         num_line = 0
         for line in self.structure:
             num_case = 0
@@ -72,6 +71,8 @@ class Player:
         self.level = level
         
     def update(self, direction):
+        sprite_size = 40
+        nb_sprites = 15
         """ moving the character"""
         if direction == 'down':
             if self.case_y < (nb_sprites - 1):
@@ -112,6 +113,7 @@ class Loot:
         self.Loot_Image = Loot_Image
 
     def display(self, Loot_Image, screen):
+        sprite_size = 40
         """ randomize position for the objects
         if the randomize position = '0' path -> display objects"""
         while self.loaded:
