@@ -12,7 +12,7 @@ class Level:
     def __init__(self, file):
         """use file .txt"""
         self.file = "level.txt"
-        self.frame = 0
+        self.structure = 0
 
     def generate(self):
         """generate level of labyrinth,
